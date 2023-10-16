@@ -1,0 +1,24 @@
+@tailwind components;
+
+@layer components {
+	.bg-main {
+		@apply bg-dark1;
+	}
+
+	.bg-secondary {
+		@apply bg-dark2;
+	}
+
+	.text-main {
+		@apply text-white;
+	}
+
+	.text-secondary {
+		@apply text-white/80;
+	}
+}
+
+body {
+	font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	-webkit-font-smoothing: antialiased;
+}

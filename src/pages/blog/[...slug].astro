@@ -1,0 +1,40 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import ArticleCard from "../../components/ArticleCard.astro";
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import "../../styles/markdown.css";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={post.data.title} description={post.data.description} />
+  </head>
+  <body class="bg-main">
+    <Header />
+    <article class="flex flex-col items-center mb-8">
+      <ArticleCard
+        {...post.data}
+        slug={post.slug}
+        heroImage={post.data.heroImage}
+      >
+        <div class="md">
+          <Content />
+        </div>
+      </ArticleCard>
+    </article>
+  </body>
+</html>

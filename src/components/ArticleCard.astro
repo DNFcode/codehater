@@ -1,0 +1,45 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import ResponsiveImage from "./ResponsiveImage.astro";
+
+type Props = {
+  updatedDate: Date;
+  heroImage: ImageMetadata;
+  title: string;
+  pubDate: Date;
+  slug: string;
+  tags: string[];
+};
+
+const { title, pubDate, updatedDate, heroImage, slug, tags } = Astro.props;
+---
+
+<div class="max-w-3xl w-full bg-secondary md:rounded-lg overflow-hidden">
+  <div class="relative">
+    <a href={`/blog/${slug}/`}>
+      <ResponsiveImage maxWidth={800} minWidth={400} image={heroImage} />
+      <!-- <Image width={800} height={400} class="w-full" src={heroImage} alt="" /> -->
+      <h1
+        class="pl-4 pt-4 pb-4 pr-4 md:pl-8 md:pr-8 text-4xl font-bold text-main p-4 absolute bottom-0 w-full backdrop-blur-xl bg-dark2/50"
+      >
+        {title}
+      </h1>
+    </a>
+  </div>
+  <div class="pl-4 pt-4 pb-4 pr-4 md:pl-8 md:pr-8 text-main text-lg">
+    <div class="mb-4 text-base font-bold text-white/90">
+      Posted on {pubDate.toLocaleDateString()}
+    </div>
+    <div class="mb-8 flex gap-2">
+      {
+        tags.map((tag) => (
+          <span class="pl-3 pr-3 font-bold text-base p-1 rounded-md border border-dark3/30 bg-dark3/10 text-dark3">
+            #{tag}
+          </span>
+        ))
+      }
+    </div>
+    <p><slot /></p>
+  </div>
+</div>

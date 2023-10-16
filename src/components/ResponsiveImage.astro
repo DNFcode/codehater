@@ -1,0 +1,31 @@
+---
+import type { ImageMetadata } from "astro";
+import { getImage } from "astro:assets";
+
+type Props = {
+  maxWidth: number;
+  minWidth: number;
+  image: ImageMetadata;
+};
+
+const { maxWidth, minWidth, image, ...rest } = Astro.props;
+const widths = [minWidth, maxWidth, minWidth * 2, maxWidth * 2];
+const urls = await Promise.all(
+  widths.map(async (width) => {
+    return await getImage({
+      src: image,
+      width,
+    });
+  })
+);
+
+const srcset = urls.map((url, i) => `${url.src} ${widths[i]}w`).join(", ");
+---
+
+<img
+  {...rest}
+  width={image.width}
+  height={image.height}
+  srcset={srcset}
+  loading="lazy"
+/>

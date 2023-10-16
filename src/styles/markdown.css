@@ -1,0 +1,116 @@
+@tailwind components;
+
+@layer components {
+  .md {
+    h1 {
+      @apply text-4xl mb-5 mt-12 font-bold;
+    }
+
+    h2 {
+      @apply text-3xl mb-5 mt-10 font-bold;
+    }
+
+    h3, h4, h5, h6 {
+      @apply text-2xl mb-5 mt-5 font-bold;
+    }
+
+    p {
+      @apply text-lg mb-5;
+    }
+
+    blockquote {
+      @apply pl-6 border-l-4;
+    }
+
+    pre {
+      @apply mb-5;
+    }
+
+    ul {
+      @apply list-disc pl-6;
+    }
+
+    ol {
+      @apply list-decimal pl-6;
+    }
+  }
+}
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 0.5rem 0;
+	color: rgb(var(--black));
+	line-height: 1.2;
+}
+h1 {
+	font-size: 3.052em;
+}
+h2 {
+	font-size: 2.441em;
+}
+h3 {
+	font-size: 1.953em;
+}
+h4 {
+	font-size: 1.563em;
+}
+h5 {
+	font-size: 1.25em;
+}
+strong,
+b {
+	font-weight: 700;
+}
+a {
+	color: var(--accent);
+}
+a:hover {
+	color: var(--accent);
+}
+p {
+	margin-bottom: 1em;
+}
+.prose p {
+	margin-bottom: 2em;
+}
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+input {
+	font-size: 16px;
+}
+table {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+code {
+	padding: 2px 5px;
+	background-color: rgb(var(--gray-light));
+	border-radius: 2px;
+}
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+}
+pre > code {
+	all: unset;
+}
+blockquote {
+	border-left: 4px solid var(--accent);
+	padding: 0 0 0 20px;
+	margin: 0px;
+	font-size: 1.333em;
+}
+hr {
+	border: none;
+	border-top: 1px solid rgb(var(--gray-light));
+} */
