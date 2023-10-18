@@ -4,6 +4,7 @@ description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Oct 10 2023'
 updatedDate: 'Oct 10 2023'
 heroImage: '../images/astro-overview.png'
+imageAlt: 'Astro framework logo with gradient background'
 tags: ['javascript', 'astro']
 ---
 

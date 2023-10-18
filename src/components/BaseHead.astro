@@ -6,12 +6,18 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description: string;
+  content: "article" | "website";
   image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
+const {
+  title,
+  description,
+  image = "/blog-placeholder-1.jpg",
+  content,
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -20,6 +26,7 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" href="/favicon.ico" sizes="32x32" />
 <meta name="generator" content={Astro.generator} />
+<link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -30,7 +37,7 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={content} />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

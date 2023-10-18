@@ -6,9 +6,10 @@ type Props = {
   maxWidth: number;
   minWidth: number;
   image: ImageMetadata;
+  alt: string;
 };
 
-const { maxWidth, minWidth, image, ...rest } = Astro.props;
+const { maxWidth, minWidth, image, alt, ...rest } = Astro.props;
 const widths = [minWidth, maxWidth, minWidth * 2, maxWidth * 2];
 const urls = await Promise.all(
   widths.map(async (width) => {
@@ -28,4 +29,5 @@ const srcset = urls.map((url, i) => `${url.src} ${widths[i]}w`).join(", ");
   height={image.height}
   srcset={srcset}
   loading="lazy"
+  alt={alt}
 />

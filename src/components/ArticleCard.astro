@@ -6,20 +6,26 @@ import ResponsiveImage from "./ResponsiveImage.astro";
 type Props = {
   updatedDate: Date;
   heroImage: ImageMetadata;
+  imageAlt: string;
   title: string;
   pubDate: Date;
   slug: string;
   tags: string[];
 };
 
-const { title, pubDate, updatedDate, heroImage, slug, tags } = Astro.props;
+const { title, pubDate, updatedDate, heroImage, slug, tags, imageAlt } =
+  Astro.props;
 ---
 
 <div class="max-w-3xl w-full bg-secondary md:rounded-lg overflow-hidden">
   <div class="relative">
     <a href={`/blog/${slug}/`}>
-      <ResponsiveImage maxWidth={800} minWidth={400} image={heroImage} />
-      <!-- <Image width={800} height={400} class="w-full" src={heroImage} alt="" /> -->
+      <ResponsiveImage
+        maxWidth={800}
+        minWidth={400}
+        image={heroImage}
+        alt={imageAlt}
+      />
       <h1
         class="pl-4 pt-4 pb-4 pr-4 md:pl-8 md:pr-8 text-4xl font-bold text-main p-4 absolute bottom-0 w-full backdrop-blur-xl bg-dark2/50"
       >

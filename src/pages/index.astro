@@ -1,44 +1,53 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import ChevronDownIcon from "../icons/ChevronDownIcon.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection } from "astro:content";
 import ArticleCard from "../components/ArticleCard.astro";
 import MailIcon from "../icons/MailIcon.astro";
 import LinkedInIcon from "../icons/LinkedInIcon.astro";
 import Header from "../components/Header.astro";
+import RssIcon from "../icons/RssIcon.astro";
+import GitHubIcon from "../icons/GitHubIcon.astro";
+import { TITLE, DESCRIPTION } from "./siteInfo";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const links = [
+  [MailIcon, "mailto:nikita@codehater.blog"],
+  [LinkedInIcon, "https://www.linkedin.com/in/nikita-vasilev-342449121/"],
+  [GitHubIcon, "https://github.com/DNFcode/codehater"],
+  [RssIcon, "/rss.xml"],
+] as const;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title="Code hater blog" description={SITE_DESCRIPTION} />
+    <BaseHead title={TITLE} description={DESCRIPTION} content={"website"} />
   </head>
   <body class="bg-main">
     <div class="absolute top-0 w-full">
       <Header />
     </div>
-    <div class="w-1/2 h-screen hidden lg:block">
-      <div
-        class="flex justify-end flex-col w-full h-1/2 pr-8 whitespace-nowrap"
-      >
+    <div class="w-1/2 h-screen hidden lg:block whitespace-nowrap">
+      <div class="flex justify-end flex-col w-full h-1/2 pr-8">
         <h1 class="text-main text-6xl text-right mb-4">Just dev thoughts</h1>
         <h2 class="text-main text-xl text-right mb-3">by Nikita Vasilev</h2>
         <div class="flex justify-end gap-2">
-          <span
-            class="p-2 flex whitespace-nowrap font-semibold text-base rounded-md border-[1.5px] border-dark3/30 bg-dark3/10 text-dark3"
-          >
-            <MailIcon />
-          </span>
-          <span
-            class="p-2 flex whitespace-nowrap font-semibold text-base rounded-md border-[1.5px] border-dark3/30 bg-dark3/10 text-dark3"
-          >
-            <LinkedInIcon />
-          </span>
+          {
+            links.map(([Icon, link]) => (
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={link}
+                class="p-2 rounded-md border-[1.5px] border-dark3/30 bg-dark3/10 text-dark3 hover:border-dark3/60 hover:bg-dark3/20"
+              >
+                <Icon />
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>
