@@ -1,0 +1,28 @@
+---
+import MailIcon from "../icons/MailIcon.astro";
+import LinkedInIcon from "../icons/LinkedInIcon.astro";
+import RssIcon from "../icons/RssIcon.astro";
+import GitHubIcon from "../icons/GitHubIcon.astro";
+
+const links = [
+  [MailIcon, "mailto:nikita@codehater.blog"],
+  [LinkedInIcon, "https://www.linkedin.com/in/nikita-vasilev-342449121/"],
+  [GitHubIcon, "https://github.com/DNFcode/codehater"],
+  [RssIcon, "/rss.xml"],
+] as const;
+---
+
+<div class="flex justify-end gap-2">
+  {
+    links.map(([Icon, link]) => (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={link}
+        class="p-2 rounded-md border-[1.5px] border-dark3/30 bg-dark3/10 text-dark3 hover:border-dark3/60 hover:bg-dark3/20"
+      >
+        <Icon />
+      </a>
+    ))
+  }
+</div>
