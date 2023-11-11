@@ -18,7 +18,7 @@ const { title, pubDate, updatedDate, heroImage, slug, tags, imageAlt } =
 ---
 
 <div class="max-w-3xl w-full bg-secondary md:rounded-lg overflow-hidden">
-  <div class="relative">
+  <div>
     <a href={`/articles/${slug}/`}>
       <ResponsiveImage
         maxWidth={800}
@@ -26,11 +26,22 @@ const { title, pubDate, updatedDate, heroImage, slug, tags, imageAlt } =
         image={heroImage}
         alt={imageAlt}
       />
-      <h1
-        class="pl-4 pt-4 pb-4 pr-4 md:pl-8 md:pr-8 text-4xl font-bold text-main p-4 absolute bottom-0 w-full backdrop-blur-xl bg-dark2/50"
-      >
-        {title}
-      </h1>
+      <div class="relative overflow-hidden">
+        <div class="absolute -scale-y-100">
+          <ResponsiveImage
+            class="scale-y-[400%] origin-bottom"
+            maxWidth={800}
+            minWidth={400}
+            image={heroImage}
+            alt=""
+          />
+        </div>
+        <h1
+          class="pl-4 pt-4 pb-4 pr-4 md:pl-8 md:pr-8 text-4xl font-bold text-main p-4 w-full backdrop-blur-2xl bg-dark2/50"
+        >
+          {title}
+        </h1>
+      </div>
     </a>
   </div>
   <div class="pl-4 pt-4 pb-4 pr-4 md:pl-8 md:pr-8 text-main text-lg">
