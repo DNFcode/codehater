@@ -10,6 +10,7 @@ module.exports = {
         dark1: "#00121b",
         dark2: "#001924",
         dark3: "#00c8f6",
+        dark4: "#132e39",
       },
       keyframes: {
         slideRight: {

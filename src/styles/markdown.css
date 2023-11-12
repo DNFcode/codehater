@@ -33,6 +33,22 @@
     ol {
       @apply list-decimal pl-6;
     }
+
+		a {
+			@apply underline text-dark3;
+		}
+
+		p code {
+			@apply bg-dark4 rounded-md px-1 py-[2px] text-dark3;
+		}
+
+		.astro-code {
+			@apply p-4 rounded-lg;
+		}
+
+		img {
+			@apply rounded-lg;
+		}
   }
 }
 
