@@ -5,6 +5,7 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import "../../styles/markdown.css";
 import ShareButton from "../../components/ShareButton.astro";
+import { ViewTransitions } from "astro:transitions";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -28,6 +29,7 @@ const { Content } = await post.render();
       image={post.data.socialImage}
       content={"article"}
     />
+    <ViewTransitions />
   </head>
   <body class="bg-main">
     <Header />
