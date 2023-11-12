@@ -1,0 +1,36 @@
+---
+import ShareIcon from "../icons/ShareIcon.astro";
+---
+
+<button
+  title="Share this page"
+  id="share-button"
+  class="text-dark3 invisible border-dark3/30 border-[1.5px] fixed bottom-4 right-4 h-12 w-12 flex justify-center items-center rounded-lg bg-dark4"
+>
+  <ShareIcon />
+</button>
+<script>
+  function initShareButton() {
+    const shareButton = document.querySelector("#share-button");
+
+    if (!shareButton) {
+      return;
+    }
+
+    // @ts-expect-error - TS doesn't know that canShare can be undefined
+    if (navigator.canShare) {
+      shareButton.classList.remove("invisible");
+    }
+
+    shareButton.addEventListener("click", () => {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href,
+        });
+      }
+    });
+  }
+
+  initShareButton();
+</script>

@@ -4,6 +4,7 @@ import ArticleCard from "../../components/ArticleCard.astro";
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import "../../styles/markdown.css";
+import ShareButton from "../../components/ShareButton.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -30,7 +31,7 @@ const { Content } = await post.render();
   </head>
   <body class="bg-main">
     <Header />
-    <article class="flex flex-col items-center mb-16">
+    <article class="flex flex-col items-center mb-24">
       <ArticleCard
         {...post.data}
         slug={post.slug}
@@ -40,6 +41,7 @@ const { Content } = await post.render();
           <Content />
         </div>
       </ArticleCard>
+      <ShareButton />
     </article>
   </body>
 </html>
