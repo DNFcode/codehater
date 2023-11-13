@@ -1,8 +1,8 @@
 ---
 title: 'Zero javascript progressive loading'
 description: 'Functional version of zero js progressive loading with Astro framework and comparison to react server components in Next.js with Suspense.'
-pubDate: 'Nov 13 2023'
-updatedDate: 'Nov 13 2023'
+pubDate: 'Nov 13 2023 12:12'
+updatedDate: 'Nov 13 2023 12:12'
 heroImage: '../images/zero-js-progressive-loading/hero.png'
 socialImage: '../images/zero-js-progressive-loading/social.png'
 imageAlt: 'Diagram showcasing progressive loading of content'
