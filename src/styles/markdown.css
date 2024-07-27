@@ -43,7 +43,7 @@
 		}
 
 		.astro-code {
-			@apply p-4 rounded-lg;
+			@apply p-4 rounded-lg text-sm sm:text-base;
 		}
 
 		img {

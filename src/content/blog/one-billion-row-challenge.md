@@ -6,7 +6,7 @@ updatedDate: 'Jul 28 2024 15:03'
 heroImage: '../images/1brc/hero.png'
 socialImage: '../images/1brc/social.png'
 imageAlt: 'Two buff meme doges with their heads replaced by Node.js logo and Bun logo. Versus sign is between them.'
-tags: ['javascript', 'node', 'bun', 'performance']
+tags: ['javascript', 'node', 'bun']
 ---
 
 I stumbled upon the challenge not that long ago, and even though it was completed in January of 2024, I still thought it would be fun to try it out for myself and at the same time compare the performance of Node and Bun in this scenario. You can read more about the challenge on [1brc.dev](https://1brc.dev/).
