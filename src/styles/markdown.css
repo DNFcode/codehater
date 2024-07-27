@@ -27,18 +27,18 @@
     }
 
     ul {
-      @apply list-disc pl-6;
+      @apply list-disc pl-6 mb-5;
     }
 
     ol {
-      @apply list-decimal pl-6;
+      @apply list-decimal pl-6 mb-5;
     }
 
 		a {
 			@apply underline text-dark3;
 		}
 
-		p code {
+		code:not(pre code) {
 			@apply bg-dark4 rounded-md px-1 py-[2px] text-dark3;
 		}
 
